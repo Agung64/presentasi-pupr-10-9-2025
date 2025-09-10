@@ -96,12 +96,15 @@
             height: 100%;
         }
         .quadrant {
-            padding: 1.25rem;
+            padding: 1rem;
             border-radius: 0.75rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
         }
          .quadrant h4 {
             font-weight: 700;
-            margin-bottom: 0.75rem;
+            margin-bottom: 0.25rem;
             font-size: 1rem;
         }
     </style>
@@ -136,7 +139,7 @@
         </div>
     </section>
 
-    <!-- Slide 3: Latar Belakang & Urgensi Masalah (BARU) -->
+    <!-- Slide 3: Latar Belakang & Urgensi Masalah -->
     <section class="slide">
         <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8 items-center text-left">
             <div class="p-4">
@@ -152,7 +155,7 @@
         </div>
     </section>
 
-    <!-- Slide 4: Analisis Akar Masalah (BARU) -->
+    <!-- Slide 4: Analisis Akar Masalah -->
     <section class="slide">
         <div class="slide-content">
             <h2 class="text-sm font-bold uppercase text-blue-600 tracking-widest mb-4">ANALISIS AKAR MASALAH</h2>
@@ -218,7 +221,7 @@
         </div>
     </section>
 
-    <!-- Slide 7: Cakupan Manfaat (BARU) -->
+    <!-- Slide 7: Cakupan Manfaat -->
      <section class="slide">
         <div class="slide-content grid grid-cols-1 md:grid-cols-5 gap-8 items-center text-left">
             <div class="md:col-span-2 bg-blue-600 text-white rounded-2xl p-8 flex flex-col justify-center h-full text-center">
@@ -253,7 +256,7 @@
         </div>
     </section>
     
-    <!-- Slide 9: Rincian Target Jangka Pendek (BARU) -->
+    <!-- Slide 9: Rincian Target Jangka Pendek -->
     <section class="slide">
         <div class="slide-content">
             <h2 class="text-sm font-bold uppercase text-blue-600 tracking-widest mb-4">DETAIL RENCANA AKSI JANGKA PENDEK (2 BULAN)</h2>
@@ -284,16 +287,24 @@
         </div>
     </section>
 
-    <!-- Slide 10: Dasar Penetapan Strategi (SWOT) -->
+    <!-- Slide 10: Analisis Risiko & Mitigasi -->
     <section class="slide">
         <div class="slide-content">
-            <h2 class="text-sm font-bold uppercase text-blue-600 tracking-widest mb-4">DASAR PENETAPAN STRATEGI (ANALISIS SWOT)</h2>
-            <h3 class="text-4xl font-bold text-gray-900 mb-6">Keputusan Inovasi Berbasis Data Lingkungan Strategis</h3>
-            <div class="grid grid-cols-2 gap-4 w-full h-full text-left text-sm">
-                <div class="p-4 bg-green-50 rounded-lg border border-green-200"><h4 class="font-bold text-green-800">Strategi S-O (Agresif)</h4><p class="text-green-700">Gunakan <span class="font-semibold">Perda & Komitmen Pimpinan</span> untuk mengadopsi <span class="font-semibold">Teknologi GIS</span> dan menjalin <span class="font-semibold">Kolaborasi Pentahelix</span> secara cepat.</p></div>
-                <div class="p-4 bg-yellow-50 rounded-lg border border-yellow-200"><h4 class="font-bold text-yellow-800">Strategi W-O (Turn-Around)</h4><p class="text-yellow-700">Atasi <span class="font-semibold">Kelemahan Data & SDM</span> dengan memanfaatkan <span class="font-semibold">Peluang Teknologi GIS</span> dan kolaborasi dengan <span class="font-semibold">Akademisi</span>.</p></div>
-                <div class="p-4 bg-blue-50 rounded-lg border border-blue-200"><h4 class="font-bold text-blue-800">Strategi S-T (Diversifikasi)</h4><p class="text-blue-700">Gunakan <span class="font-semibold">Kekuatan Legitimasi Perda</span> sebagai modal negosiasi untuk memitigasi <span class="font-semibold">Ancaman Resistensi</span> dari pemilik utilitas.</p></div>
-                <div class="p-4 bg-red-50 rounded-lg border border-red-200"><h4 class="font-bold text-red-800">Strategi W-T (Defensif)</h4><p class="text-red-700"><span class="font-semibold">Inovasi Utama:</span> Susun Pergub secara <span class="font-semibold">Partisipatif</span> untuk mengatasi resistensi, dan lakukan <span class="font-semibold">Pilot Project</span> untuk mengatasi keterbatasan anggaran awal.</p></div>
+            <h2 class="text-sm font-bold uppercase text-blue-600 tracking-widest mb-4">ANALISIS RISIKO & RENCANA MITIGASI</h2>
+            <h3 class="text-4xl font-bold text-gray-900 mb-6">Mengantisipasi Tantangan untuk Kelancaran Proyek</h3>
+            <div class="w-full max-w-4xl text-left space-y-4">
+                <div class="bg-yellow-50 p-4 rounded-lg border border-yellow-200">
+                    <h4 class="font-semibold text-lg text-yellow-800">Risiko: Potensi resistensi dari BUMN/BUMD menguat saat pembahasan tarif.</h4>
+                    <p class="text-yellow-700 mt-1">→ <b>Mitigasi:</b> Melakukan pendekatan informal pra-FGD, menyajikan data benchmark tarif, dan menekankan narasi <i>mutual benefit</i> (kepastian hukum).</p>
+                </div>
+                <div class="bg-yellow-50 p-4 rounded-lg border border-yellow-200">
+                    <h4 class="font-semibold text-lg text-yellow-800">Risiko: Keterlambatan dalam proses harmonisasi birokrasi internal.</h4>
+                    <p class="text-yellow-700 mt-1">→ <b>Mitigasi:</b> Mengawal proses secara intensif dengan menunjuk PIC khusus dan melaporkan progres secara rutin kepada <i>champion</i> (Gubernur/Sekda).</p>
+                </div>
+                <div class="bg-yellow-50 p-4 rounded-lg border border-yellow-200">
+                    <h4 class="font-semibold text-lg text-yellow-800">Risiko: Keterbatasan anggaran awal untuk survei dan pematokan masif.</h4>
+                    <p class="text-yellow-700 mt-1">→ <b>Mitigasi:</b> Melaksanakan <i>pilot project</i> di ruas strategis sebagai <i>proof of concept</i> untuk justifikasi anggaran di tahun berikutnya.</p>
+                </div>
             </div>
         </div>
     </section>
@@ -320,16 +331,36 @@
         </div>
     </section>
 
-    <!-- Slide 12: Pemetaan Stakeholder (BARU) -->
+    <!-- Slide 12: Pemetaan Stakeholder -->
     <section class="slide">
         <div class="slide-content">
             <h2 class="text-sm font-bold uppercase text-blue-600 tracking-widest mb-4">PEMETAAN & STRATEGI PENGELOLAAN STAKEHOLDER</h2>
             <h3 class="text-4xl font-bold text-gray-900 mb-6">Kolaborasi Pentahelix (Matriks Mendelow)</h3>
             <div class="grid-2x2 w-full max-w-6xl text-xs">
-                <div class="quadrant bg-orange-50 border border-orange-200 text-center flex flex-col justify-center"><h4 class="text-orange-800">APATHETICS (Monitor)</h4><p>Media Massa</p></div>
-                <div class="quadrant bg-green-50 border border-green-200 text-center flex flex-col justify-center"><h4 class="text-green-800">LATENTS (Keep Satisfied)</h4><p>DPRD Provinsi NTT, BPKAD</p></div>
-                <div class="quadrant bg-yellow-50 border border-yellow-200 text-center flex flex-col justify-center"><h4 class="text-yellow-800">DEFENDERS (Keep Informed)</h4><p>Masyarakat, Akademisi</p></div>
-                <div class="quadrant bg-blue-50 border border-blue-200 text-center flex flex-col justify-center"><h4 class="text-blue-800">PROMOTERS (Manage Closely)</h4><p class="font-semibold">Gubernur/Sekda, Ka. Dinas PUPR, BUMN/BUMND, Ka. Biro Hukum</p></div>
+                <div class="quadrant bg-orange-50 border border-orange-200 text-center">
+                    <h4 class="text-orange-800">APATHETICS</h4>
+                    <p class="font-bold text-orange-700 mb-1">Strategi: Monitor</p>
+                    <p class="font-semibold">Media Massa</p>
+                    <p class="mt-2 text-gray-600 text-left">How-to: Pantau pemberitaan & siapkan siaran pers untuk pencapaian penting.</p>
+                </div>
+                <div class="quadrant bg-green-50 border border-green-200 text-center">
+                    <h4 class="text-green-800">LATENTS</h4>
+                    <p class="font-bold text-green-700 mb-1">Strategi: Keep Satisfied</p>
+                    <p class="font-semibold">DPRD Provinsi NTT, BPKAD</p>
+                     <p class="mt-2 text-gray-600 text-left">How-to: Sampaikan laporan ringkas pada milestone penting & fokus pada isu relevan bagi mereka.</p>
+                </div>
+                <div class="quadrant bg-yellow-50 border border-yellow-200 text-center">
+                    <h4 class="text-yellow-800">DEFENDERS</h4>
+                    <p class="font-bold text-yellow-700 mb-1">Strategi: Keep Informed</p>
+                    <p class="font-semibold">Masyarakat, Akademisi</p>
+                     <p class="mt-2 text-gray-600 text-left">How-to: Sosialisasikan manfaat via media, libatkan akademisi sebagai ahli, sediakan kanal komunikasi.</p>
+                </div>
+                <div class="quadrant bg-blue-50 border border-blue-200 text-center">
+                    <h4 class="text-blue-800">PROMOTERS</h4>
+                    <p class="font-bold text-blue-700 mb-1">Strategi: Manage Closely</p>
+                    <p class="font-semibold">Gubernur/Sekda, Ka. Dinas PUPR, BUMN/BUMND, Ka. Biro Hukum</p>
+                     <p class="mt-2 text-gray-600 text-left">How-to: Libatkan penuh dalam rapat strategis, adakan audiensi rutin, & kirim laporan progres proaktif.</p>
+                </div>
             </div>
         </div>
     </section>
@@ -447,4 +478,5 @@
     </script>
 </body>
 </html>
+
 
