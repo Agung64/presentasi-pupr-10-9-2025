@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Presentasi Proyek Perubahan: GEBER-NTT</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            overflow: hidden;
+            background-color: #f0f4f8;
+        }
+        .slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem 4rem;
+            opacity: 0;
+            transition: opacity 0.6s ease-in-out, transform 0.6s ease-in-out;
+            transform: scale(0.95);
+            pointer-events: none;
+        }
+        .slide.active {
+            opacity: 1;
+            transform: scale(1);
+            pointer-events: auto;
+        }
+        .slide-content {
+            background: white;
+            border-radius: 1.5rem;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            width: 100%;
+            max-width: 1100px;
+            height: 600px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 3rem;
+            text-align: center;
+            border: 1px solid #e2e8f0;
+        }
+        .nav-button {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(255, 255, 255, 0.8);
+            border: 1px solid #e2e8f0;
+            border-radius: 9999px;
+            width: 3.5rem;
+            height: 3.5rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            z-index: 10;
+        }
+        .nav-button:hover {
+            background-color: white;
+            transform: translateY(-50%) scale(1.1);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        #prevBtn { left: 1rem; }
+        #nextBtn { right: 1rem; }
+        #progressBar {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            height: 8px;
+            background-color: #3b82f6;
+            transition: width 0.3s ease-out;
+            z-index: 20;
+        }
+        .bg-pattern {
+            background-color: #f0f4f8;
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23d4e0ee' fill-opacity='0.4'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2-H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+         .grid-2x2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: 1fr 1fr;
+            gap: 1rem;
+            width: 100%;
+            height: 100%;
+        }
+        .quadrant {
+            padding: 1.25rem;
+            border-radius: 0.75rem;
+        }
+         .quadrant h4 {
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+            font-size: 1rem;
+        }
+    </style>
+</head>
+<body class="bg-pattern">
+
+    <!-- Slide 1: Judul -->
+    <section class="slide active">
+        <div class="slide-content flex-col justify-center items-center text-center">
+            <div class="bg-blue-600 text-white font-black text-2xl px-6 py-2 rounded-full mb-6 inline-block">GEBER-NTT</div>
+            <h1 class="text-5xl md:text-6xl font-extrabold text-gray-900 mb-4 tracking-tight">Gerakan Bersama Ayo Bangun Jalan NTT</h1>
+            <p class="text-xl text-gray-600 max-w-3xl">Strategi Akselerasi Implementasi Perda No. 1 Tahun 2024 untuk Kemandirian Fiskal Infrastruktur</p>
+            <div class="mt-10 border-t pt-6 w-full max-w-md">
+                <p class="text-lg font-semibold text-gray-800">Ir. Benyamin Nahak, MT</p>
+                <p class="text-md text-gray-500">Project Leader</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Slide 2: Kerangka Paparan -->
+    <section class="slide">
+        <div class="slide-content">
+            <h2 class="text-sm font-bold uppercase text-blue-600 tracking-widest mb-4">STRUKTUR PRESENTASI</h2>
+            <h3 class="text-4xl font-bold text-gray-900 mb-8 max-w-4xl">Menjawab 5 Kriteria Penilaian Proyek Perubahan</h3>
+            <div class="w-full max-w-4xl text-left text-lg space-y-3">
+                <div class="bg-gray-50 p-4 rounded-lg border flex items-center"><span class="bg-blue-600 text-white rounded-full h-8 w-8 flex items-center justify-center font-bold mr-4">1</span><span class="font-semibold text-gray-800">Ketepatan Rencana</span> dengan Tuntutan Organisasi Adaptif</div>
+                <div class="bg-gray-50 p-4 rounded-lg border flex items-center"><span class="bg-blue-600 text-white rounded-full h-8 w-8 flex items-center justify-center font-bold mr-4">2</span><span class="font-semibold text-gray-800">Terobosan Inovatif</span> & Cakupan Manfaat</div>
+                <div class="bg-gray-50 p-4 rounded-lg border flex items-center"><span class="bg-blue-600 text-white rounded-full h-8 w-8 flex items-center justify-center font-bold mr-4">3</span><span class="font-semibold text-gray-800">Tahapan Rencana</span> & Ketepatan Strategi Organisasi</div>
+                <div class="bg-gray-50 p-4 rounded-lg border flex items-center"><span class="bg-blue-600 text-white rounded-full h-8 w-8 flex items-center justify-center font-bold mr-4">4</span><span class="font-semibold text-gray-800">Rencana Strategi Marketing</span> & Pengelolaan Stakeholder</div>
+                <div class="bg-gray-50 p-4 rounded-lg border flex items-center"><span class="bg-blue-600 text-white rounded-full h-8 w-8 flex items-center justify-center font-bold mr-4">5</span><span class="font-semibold text-gray-800">Rencana Pengembangan Kompetensi</span> Tim</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Slide 3: Latar Belakang & Urgensi Masalah (BARU) -->
+    <section class="slide">
+        <div class="slide-content grid grid-cols-1 md:grid-cols-2 gap-8 items-center text-left">
+            <div class="p-4">
+                <h2 class="text-sm font-bold uppercase text-blue-600 tracking-widest mb-2">URGENSI PERUBAHAN</h2>
+                <h3 class="text-4xl font-bold text-gray-900 mb-4">Kondisi Kritis Infrastruktur NTT</h3>
+                <p class="text-lg text-gray-600">Kondisi jalan yang tidak mantap menjadi penghambat utama laju ekonomi, meningkatkan biaya logistik secara signifikan, dan menurunkan kualitas hidup serta daya saing masyarakat di Provinsi NTT.</p>
+            </div>
+            <div class="bg-red-50 border-4 border-red-200 rounded-2xl p-8 flex flex-col justify-center items-center h-full">
+                <p class="text-7xl font-black text-red-500">32,26%</p>
+                <p class="text-xl font-semibold text-red-700 mt-2">Jalan Provinsi Tidak Mantap</p>
+                <p class="text-gray-600 mt-1">(870,24 km dari 2.697,31 km)</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Slide 4: Analisis Akar Masalah (BARU) -->
+    <section class="slide">
+        <div class="slide-content">
+            <h2 class="text-sm font-bold uppercase text-blue-600 tracking-widest mb-4">ANALISIS AKAR MASALAH</h2>
+            <h3 class="text-4xl font-bold text-gray-900 mb-6">Mengapa Potensi PAD Masih Terkunci?</h3>
+            <div class="w-full text-left grid grid-cols-2 gap-x-8 gap-y-4 text-gray-700 text-sm">
+                <div class="bg-red-50 p-4 rounded-lg border border-red-200">
+                    <p class="font-bold text-red-800 mb-1">REGULASI & KEBIJAKAN</p>
+                    <p class="text-red-700">→ <span class="font-semibold">Ketiadaan Peraturan Gubernur (Pergub)</span> sebagai petunjuk teknis operasional dari Perda No. 1 Tahun 2024.</p>
+                </div>
+                <div class="bg-gray-50 p-4 rounded-lg border">
+                    <p class="font-bold text-gray-800 mb-1">ANGGARAN</p>
+                    <p class="text-gray-700">→ Ketergantungan tinggi pada dana transfer pusat karena <span class="font-semibold">potensi PAD dari DMJ belum terealisasi</span>.</p>
+                </div>
+                <div class="bg-gray-50 p-4 rounded-lg border">
+                    <p class="font-bold text-gray-800 mb-1">SISTEM & DATA</p>
+                    <p class="text-gray-700">→ Data aset utilitas di DMJ <span class="font-semibold">belum terinventarisasi secara akurat, terpusat, dan digital (GIS)</span>.</p>
+                </div>
+                <div class="bg-gray-50 p-4 rounded-lg border">
+                    <p class="font-bold text-gray-800 mb-1">SUMBER DAYA MANUSIA (SDM)</p>
+                    <p class="text-gray-700">→ Keterbatasan kompetensi teknis SDM dalam tata kelola dan analisis aset berbasis digital (GIS).</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Slide 5: Penilaian 1 - Ketepatan Rencana -->
+    <section class="slide">
+        <div class="slide-content">
+            <h2 class="text-sm font-bold uppercase text-blue-600 tracking-widest mb-2">POIN 1: KETEPATAN RENCANA DENGAN TUNTUTAN ORGANISASI ADAPTIF</h2>
+            <h3 class="text-4xl font-bold text-gray-900 mb-6 max-w-5xl">Menjawab Kesenjangan Fiskal & Kegagalan Adaptasi</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 w-full h-full text-left">
+                <div class="bg-red-50 border border-red-200 rounded-xl p-6">
+                    <h4 class="font-bold text-xl text-red-800 mb-2">Tantangan & Kegagalan Adaptasi</h4>
+                    <p class="text-red-700">Organisasi belum mampu beradaptasi: <span class="font-bold">Perda No. 1/2024 sudah ada</span>, tapi potensi PAD terkunci karena ketiadaan aturan pelaksana (Pergub) untuk mengatasi akar masalah.</p>
+                </div>
+                <div class="bg-green-50 border border-green-200 rounded-xl p-6">
+                    <h4 class="font-bold text-xl text-green-800 mb-2">Jawaban & Rencana Aksi Adaptif</h4>
+                    <p class="text-green-700">GEBER-NTT dirancang tepat untuk menjawab tuntutan ini dengan:
+                    <ul class="list-disc list-inside text-green-700 space-y-1 mt-2">
+                        <li>Menyusun & menetapkan <span class="font-semibold">Pergub</span> sebagai jembatan eksekusi.</li>
+                        <li>Membangun <span class="font-semibold">ekosistem digital GIS</span> untuk tata kelola aset modern.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Slide 6: Penilaian 2 - Terobosan Inovatif -->
+    <section class="slide">
+        <div class="slide-content">
+             <h2 class="text-sm font-bold uppercase text-blue-600 tracking-widest mb-2">POIN 2: TEROBOSAN INOVATIF & CAKUPAN MANFAAT</h2>
+             <h3 class="text-4xl font-bold text-gray-900 mb-8">Dua Pilar Inovasi untuk Kemandirian Fiskal</h3>
+             <div class="flex flex-col md:flex-row gap-8 w-full max-w-5xl">
+                <div class="flex-1 bg-gray-50 p-8 rounded-xl text-center border transform hover:scale-105 transition-transform duration-300">
+                    <h4 class="font-bold text-xl text-gray-800 mb-2">1. Formulasi Regulasi Partisipatif</h4>
+                    <p class="text-gray-600">Melahirkan Pergub yang adil dan aplikatif melalui kolaborasi intensif dengan BUMN/BUMND untuk memitigasi resistensi sejak awal.</p>
+                </div>
+                <div class="flex-1 bg-gray-50 p-8 rounded-xl text-center border transform hover:scale-105 transition-transform duration-300">
+                    <h4 class="font-bold text-xl text-gray-800 mb-2">2. Pembangunan Ekosistem Digital</h4>
+                    <p class="text-gray-600">Membangun database aset berbasis GIS yang akurat sebagai fondasi tata kelola yang modern, transparan, dan akuntabel.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Slide 7: Cakupan Manfaat (BARU) -->
+     <section class="slide">
+        <div class="slide-content grid grid-cols-1 md:grid-cols-5 gap-8 items-center text-left">
+            <div class="md:col-span-2 bg-blue-600 text-white rounded-2xl p-8 flex flex-col justify-center h-full text-center">
+                <p class="text-lg font-semibold">Manfaat Utama</p>
+                <p class="text-6xl font-black my-2">Rp 20 M</p>
+                <p class="text-xl font-semibold">Target PAD Baru/Tahun</p>
+                <p class="text-blue-200 mt-2 text-sm">Untuk mewujudkan "Jalan Mantap".</p>
+            </div>
+            <div class="md:col-span-3">
+                <h2 class="text-sm font-bold uppercase text-blue-600 tracking-widest mb-2">MANFAAT MULTIDIMENSIONAL</h2>
+                <h3 class="text-3xl font-bold text-gray-900 mb-4">Lebih dari Sekadar PAD</h3>
+                 <ul class="space-y-3 list-disc list-inside text-gray-600 text-lg">
+                    <li>Mewujudkan <span class="font-semibold">kemandirian fiskal</span> daerah.</li>
+                    <li>Meningkatkan kualitas kebijakan berbasis <span class="font-semibold">data akurat (GIS)</span>.</li>
+                    <li><span class="font-semibold">Menurunkan biaya logistik</span> & meningkatkan ekonomi.</li>
+                    <li>Menciptakan <span class="font-semibold">iklim investasi kondusif</span> dengan kepastian hukum.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Slide 8: Penilaian 3 - Tahapan Rencana (Roadmap) -->
+    <section class="slide">
+        <div class="slide-content">
+            <h2 class="text-sm font-bold uppercase text-blue-600 tracking-widest mb-2">POIN 3: TAHAPAN RENCANA & KETEPATAN STRATEGI</h2>
+            <h3 class="text-4xl font-bold text-gray-900 mb-6 max-w-4xl">Peta Jalan Terukur Menuju Kemandirian</h3>
+            <div class="w-full max-w-6xl flex flex-col md:flex-row gap-4 text-left">
+                <div class="flex-1 bg-blue-50 p-5 rounded-xl border-2 border-blue-200"><h4 class="text-xl font-bold text-blue-800">Jangka Pendek (2 Bulan)</h4><p class="text-sm text-blue-600 mb-3">FONDASI EKSEKUSI</p><ul class="space-y-2 list-disc list-inside text-gray-700"><li><strong>Draf Final Ranpergub</strong> siap.</li><li><strong>Pilot Project Peta GIS</strong>.</li><li><strong>Kesepakatan Awal</strong> BUMN.</li></ul></div>
+                <div class="flex-1 bg-green-50 p-5 rounded-xl border-2 border-green-200"><h4 class="text-xl font-bold text-green-800">Jangka Menengah (1 Tahun)</h4><p class="text-sm text-green-600 mb-3">IMPLEMENTASI AWAL</p><ul class="space-y-2 list-disc list-inside text-gray-700"><li><strong>Pergub ditetapkan</strong> & disosialisasikan.</li><li><strong>Implementasi Awal</strong> retribusi.</li></ul></div>
+                <div class="flex-1 bg-gray-800 text-white p-5 rounded-xl border-2 border-gray-600"><h4 class="text-xl font-bold">Jangka Panjang (2 Tahun)</h4><p class="text-sm text-gray-400 mb-3">KEMANDIRIAN PENUH</p><ul class="space-y-2 list-disc list-inside"><li><strong>Target PAD Rp 20 M/Tahun</strong>.</li><li><strong>100% utilitas</strong> terdata.</li><li>Siklus <strong>Monev</strong> berjalan.</li></ul></div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Slide 9: Rincian Target Jangka Pendek (BARU) -->
+    <section class="slide">
+        <div class="slide-content">
+            <h2 class="text-sm font-bold uppercase text-blue-600 tracking-widest mb-4">DETAIL RENCANA AKSI JANGKA PENDEK (2 BULAN)</h2>
+            <h3 class="text-4xl font-bold text-gray-900 mb-6">Output Konkret September - Oktober 2025</h3>
+            <div class="w-full max-w-5xl text-left space-y-4">
+                <div class="bg-gray-50 p-4 rounded-lg flex items-center gap-4 border">
+                    <p class="text-2xl font-bold text-blue-600">1</p>
+                    <div>
+                        <h4 class="font-semibold text-lg text-gray-800">Draf Final Ranpergub Siap Ditetapkan</h4>
+                        <p class="text-sm text-gray-500">Output: Dokumen Ranpergub yang telah diharmonisasi dengan BUMN/BUMND.</p>
+                    </div>
+                </div>
+                <div class="bg-gray-50 p-4 rounded-lg flex items-center gap-4 border">
+                    <p class="text-2xl font-bold text-blue-600">2</p>
+                    <div>
+                        <h4 class="font-semibold text-lg text-gray-800">Peta Digital GIS di Ruas Percontohan</h4>
+                        <p class="text-sm text-gray-500">Output: Peta digital interaktif (v1.0) koridor Jl. Polda - El Tari & 20 patok DMJ terpasang.</p>
+                    </div>
+                </div>
+                 <div class="bg-gray-50 p-4 rounded-lg flex items-center gap-4 border">
+                    <p class="text-2xl font-bold text-blue-600">3</p>
+                    <div>
+                        <h4 class="font-semibold text-lg text-gray-800">Terbentuknya Tim Efektif</h4>
+                        <p class="text-sm text-gray-500">Output: SK Tim Efektif Proyek dan SK Tim Penyusun Ranpergub.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Slide 10: Dasar Penetapan Strategi (SWOT) -->
+    <section class="slide">
+        <div class="slide-content">
+            <h2 class="text-sm font-bold uppercase text-blue-600 tracking-widest mb-4">DASAR PENETAPAN STRATEGI (ANALISIS SWOT)</h2>
+            <h3 class="text-4xl font-bold text-gray-900 mb-6">Keputusan Inovasi Berbasis Data Lingkungan Strategis</h3>
+            <div class="grid grid-cols-2 gap-4 w-full h-full text-left text-sm">
+                <div class="p-4 bg-green-50 rounded-lg border border-green-200"><h4 class="font-bold text-green-800">Strategi S-O (Agresif)</h4><p class="text-green-700">Gunakan <span class="font-semibold">Perda & Komitmen Pimpinan</span> untuk mengadopsi <span class="font-semibold">Teknologi GIS</span> dan menjalin <span class="font-semibold">Kolaborasi Pentahelix</span> secara cepat.</p></div>
+                <div class="p-4 bg-yellow-50 rounded-lg border border-yellow-200"><h4 class="font-bold text-yellow-800">Strategi W-O (Turn-Around)</h4><p class="text-yellow-700">Atasi <span class="font-semibold">Kelemahan Data & SDM</span> dengan memanfaatkan <span class="font-semibold">Peluang Teknologi GIS</span> dan kolaborasi dengan <span class="font-semibold">Akademisi</span>.</p></div>
+                <div class="p-4 bg-blue-50 rounded-lg border border-blue-200"><h4 class="font-bold text-blue-800">Strategi S-T (Diversifikasi)</h4><p class="text-blue-700">Gunakan <span class="font-semibold">Kekuatan Legitimasi Perda</span> sebagai modal negosiasi untuk memitigasi <span class="font-semibold">Ancaman Resistensi</span> dari pemilik utilitas.</p></div>
+                <div class="p-4 bg-red-50 rounded-lg border border-red-200"><h4 class="font-bold text-red-800">Strategi W-T (Defensif)</h4><p class="text-red-700"><span class="font-semibold">Inovasi Utama:</span> Susun Pergub secara <span class="font-semibold">Partisipatif</span> untuk mengatasi resistensi, dan lakukan <span class="font-semibold">Pilot Project</span> untuk mengatasi keterbatasan anggaran awal.</p></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Slide 11: Penilaian 4 - Strategi Marketing & Stakeholder -->
+    <section class="slide">
+        <div class="slide-content">
+             <h2 class="text-sm font-bold uppercase text-blue-600 tracking-widest mb-2">POIN 4: RENCANA STRATEGI MARKETING & STAKEHOLDER</h2>
+             <h3 class="text-4xl font-bold text-gray-900 mb-6">Mengkomunikasikan Perubahan untuk Keberterimaan</h3>
+             <div class="bg-gray-50 border rounded-xl p-8 w-full text-left">
+                <h4 class="font-bold text-xl text-gray-800 mb-2">Strategi Marketing Sosial (Promosi)</h4>
+                <p class="text-gray-600 mb-4">Fokus promosi adalah mengkomunikasikan manfaat dan kemudahan yang ditawarkan oleh Pergub melalui narasi yang tepat sasaran.</p>
+                <div class="flex gap-4">
+                    <div class="flex-1 bg-blue-100 text-blue-800 p-4 rounded-md mt-2">
+                        <p class="font-semibold">Untuk Masyarakat Umum:</p>
+                        <p>"PAD Baru untuk Jalan Mantap"</p>
+                    </div>
+                    <div class="flex-1 bg-blue-100 text-blue-800 p-4 rounded-md mt-2">
+                        <p class="font-semibold">Untuk Pemilik Utilitas:</p>
+                        <p>"Kepastian Hukum & Keamanan Aset"</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Slide 12: Pemetaan Stakeholder (BARU) -->
+    <section class="slide">
+        <div class="slide-content">
+            <h2 class="text-sm font-bold uppercase text-blue-600 tracking-widest mb-4">PEMETAAN & STRATEGI PENGELOLAAN STAKEHOLDER</h2>
+            <h3 class="text-4xl font-bold text-gray-900 mb-6">Kolaborasi Pentahelix (Matriks Mendelow)</h3>
+            <div class="grid-2x2 w-full max-w-6xl text-xs">
+                <div class="quadrant bg-orange-50 border border-orange-200 text-center flex flex-col justify-center"><h4 class="text-orange-800">APATHETICS (Monitor)</h4><p>Media Massa</p></div>
+                <div class="quadrant bg-green-50 border border-green-200 text-center flex flex-col justify-center"><h4 class="text-green-800">LATENTS (Keep Satisfied)</h4><p>DPRD Provinsi NTT, BPKAD</p></div>
+                <div class="quadrant bg-yellow-50 border border-yellow-200 text-center flex flex-col justify-center"><h4 class="text-yellow-800">DEFENDERS (Keep Informed)</h4><p>Masyarakat, Akademisi</p></div>
+                <div class="quadrant bg-blue-50 border border-blue-200 text-center flex flex-col justify-center"><h4 class="text-blue-800">PROMOTERS (Manage Closely)</h4><p class="font-semibold">Gubernur/Sekda, Ka. Dinas PUPR, BUMN/BUMND, Ka. Biro Hukum</p></div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Slide 13: Penilaian 5 - Pengembangan Kompetensi -->
+    <section class="slide">
+        <div class="slide-content">
+            <h2 class="text-sm font-bold uppercase text-blue-600 tracking-widest mb-4">POIN 5: RENCANA PENGEMBANGAN KOMPETENSI</h2>
+            <h3 class="text-4xl font-bold text-gray-900 mb-6">Membangun Kapasitas SDM untuk Keberlanjutan</h3>
+            <div class="w-full text-left space-y-4 max-w-4xl">
+                <div class="p-4 bg-gray-50 rounded-lg border"><h4 class="font-semibold text-lg text-gray-800">Tim Teknis Proyek (Kompetensi Digital)</h4><p class="text-gray-600">→ Pelatihan intensif penguasaan GIS untuk pendataan aset sesuai standar Pergub.</p></div>
+                <div class="p-4 bg-gray-50 rounded-lg border"><h4 class="font-semibold text-lg text-gray-800">Tim Penyusun Regulasi (Kompetensi Regulasi)</h4><p class="text-gray-600">→ Workshop teknik penyusunan Pergub yang efektif dan tidak multi-tafsir.</p></div>
+                <div class="p-4 bg-gray-50 rounded-lg border"><h4 class="font-semibold text-lg text-gray-800">Tim Lintas Sektor & Petugas (Kompetensi Kolaboratif & Teknis)</h4><p class="text-gray-600">→ Pemahaman mekanisme integrasi sistem & SOP pemungutan retribusi.</p></div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Slide 14: Kepemimpinan & Komitmen -->
+    <section class="slide">
+        <div class="slide-content">
+            <h2 class="text-sm font-bold uppercase text-blue-600 tracking-widest mb-4">KOMITMEN KEPEMIMPINAN</h2>
+            <h3 class="text-4xl font-bold text-gray-900 mb-8 max-w-4xl">Mengoptimalkan Kekuatan untuk Keberhasilan Proyek</h3>
+            <div class="w-full max-w-5xl text-left flex flex-col md:flex-row gap-8">
+                <div class="flex-1">
+                    <h4 class="text-2xl font-bold text-gray-800 mb-4 border-b-4 border-blue-500 pb-2">Kekuatan Utama</h4>
+                    <ul class="space-y-3 list-disc list-inside text-gray-600 text-lg">
+                        <li><strong>Goal-getter & Courageous:</strong> Menjadi motor penggerak eksekusi.</li>
+                        <li><strong>Harmony & Genuine:</strong> Membangun kepercayaan & kolaborasi.</li>
+                    </ul>
+                </div>
+                <div class="flex-1">
+                    <h4 class="text-2xl font-bold text-gray-800 mb-4 border-b-4 border-yellow-500 pb-2">Area Pengembangan</h4>
+                    <ul class="space-y-3 list-disc list-inside text-gray-600 text-lg">
+                        <li><strong>Developer:</strong> Membimbing tim dalam menjalankan SOP baru.</li>
+                        <li><strong>Innovative:</strong> Mencari solusi kreatif saat hadapi tantangan.</li>
+                        <li><strong>Decisive:</strong> Mengambil keputusan cepat berbasis data.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Slide 15: Penutup -->
+    <section class="slide">
+        <div class="slide-content justify-center items-center text-center bg-blue-600 text-white">
+            <h2 class="text-5xl md:text-6xl font-extrabold mb-4 tracking-tight leading-tight">Jalan Mantap, Ekonomi Melesat.</h2>
+            <h3 class="text-3xl md:text-4xl font-semibold text-blue-200">Kolaborasi Kuat, NTT Mandiri.</h3>
+            <div class="mt-12">
+                <p class="text-xl font-bold">Terima Kasih</p>
+                <p class="text-lg mt-2">Mohon dukungan untuk keberhasilan Proyek Perubahan GEBER-NTT.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Navigasi -->
+    <button id="prevBtn" class="nav-button">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="text-gray-600"><path d="M15 18l-6-6 6-6"/></svg>
+    </button>
+    <button id="nextBtn" class="nav-button">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="text-gray-600"><path d="M9 18l6-6-6-6"/></svg>
+    </button>
+
+    <!-- Progress Bar -->
+    <div id="progressBar"></div>
+
+    <script>
+        const slides = document.querySelectorAll('.slide');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        const progressBar = document.getElementById('progressBar');
+        let currentSlide = 0;
+
+        function updateSlides() {
+            slides.forEach((slide, index) => {
+                if (index === currentSlide) {
+                    slide.classList.add('active');
+                } else {
+                    slide.classList.remove('active');
+                }
+            });
+
+            const progress = ((currentSlide + 1) / slides.length) * 100;
+            progressBar.style.width = `${progress}%`;
+
+            prevBtn.style.display = currentSlide === 0 ? 'none' : 'flex';
+            nextBtn.style.display = currentSlide === slides.length - 1 ? 'none' : 'flex';
+        }
+
+        function showNextSlide() {
+            if (currentSlide < slides.length - 1) {
+                currentSlide++;
+                updateSlides();
+            }
+        }
+
+        function showPrevSlide() {
+            if (currentSlide > 0) {
+                currentSlide--;
+                updateSlides();
+            }
+        }
+
+        nextBtn.addEventListener('click', showNextSlide);
+        prevBtn.addEventListener('click', showPrevSlide);
+        
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight') {
+                showNextSlide();
+            } else if (e.key === 'ArrowLeft') {
+                showPrevSlide();
+            }
+        });
+
+        updateSlides();
+    </script>
+</body>
+</html>
+
